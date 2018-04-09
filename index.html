@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	  <title>Shopping Cart</title>
+	  <title>Shopping Mall</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 		<style>
@@ -16,6 +16,9 @@
 			.banner li{
 				font-size: 20px;
 			}
+			#logo{
+				width: 100px;
+			}
 			.menu{
 				background: orange;
 				padding:5px 0;
@@ -25,18 +28,28 @@
 				border-right:2px solid white;
 				padding:2px;
 			}
-			#logo{
-				width: 100px;
+			a {
+			    text-decoration: none;
+			    color:black;
 			}
+			a:hover{
+				color: inherit;
+			}			
 			.cart{
 				width: 100%;
 			}
 			#cart-area{
-				/*background: yellow;*/
 				padding:20px;
 			}
-			#cart-items{
-				/*background: orange;*/
+			table{
+				text-align: center;
+				font-size: 20px;
+			}
+			th{
+				text-align: center;
+			}
+			tbody tr:hover{
+				 background: rgb(201,204,207);
 			}
 			.tname{
 				background:orange;
@@ -44,42 +57,23 @@
 				border: 1px solid grey;
 				text-align: center;
 			}
-			#amount{
-				/*background: blue;*/
-				padding:2px;
-			}
-
-			.cat{
-				/*background: red;*/
+			.cartable{
 				text-align: center;
-				/*border: 1px solid black;
-				border-radius: 5px;
-*/				margin-bottom: 10px;
-				/*padding:5px;*/
-
+				margin-bottom: 10px;
 			}
-			table{
-				text-align: center;
-				font-size: 20px;
-			}
-			.cat img{
+			.cartable img{
 				width:80px;
 				height:70px;
+				filter: drop-shadow(8px 8px 10px gray);
 			}
-			.footer{
-				background: black;
-				height:100px;
-			}
-			th{
-				text-align: center;
-			}	
-			a {
+			.prod:hover {
 			    text-decoration: none;
 			    color:black;
 			}
-			#tbook{
-
-			}
+			#amount{
+				padding:2px;
+			}			
+			
 			#amount table{
 				text-align: center;
 				font-size: 15px;
@@ -96,16 +90,40 @@
 				margin: 1px auto;
 				text-align: center;
 			}
+			.footer{
+				background: black;
+				color:white;
+				font-size:30px;
+				padding:10px;
+				text-align: center;
+			}
+			#footer-menu li a{
+				color: white;
+			}
+			#footer-menu li a:hover{
+				background: grey;
+				color: black;
+			}
+
 
 
 		</style>
 	</head>
 	<body>
+		<!-- Header Start -->
 		<div class="header">
+			<!-- Banner Start -->
 			<div class="banner">
 				<div class="container">
+					<!-- Logo -->
 					<div class="row">
-						<div class="col-sm-9"><a href="#"><img class="col-sm-4 img-responsive" id="logo" src="logo.png"> <p class="col-sm-8">Shopping Cart</p></a></div>
+						<div class="col-sm-9">
+							<a href="#">
+								<img class="col-sm-4 img-responsive" id="logo" src="logo.png"> 
+								<p class="col-sm-8">Shopping Cart</p>
+							</a>
+						</div>
+						<!-- Login Menu -->
 						<div class="col-sm-3">				
 							<ul class="nav nav-justified" >
 								<li class="btn" style="border-right:2px solid white"><a href="#">Login</a></li>
@@ -115,6 +133,8 @@
 					</div>
 				</div>
 			</div>
+			<!-- Banner End -->
+			<!-- Navigation Menu Start -->
 			<div class="menu">
 				<div class="container-fluid">
 					<ul class="nav nav-pills nav-justified">
@@ -130,15 +150,19 @@
 				</div>
 			</div>				
 		</div>
+		<!-- Navigation Menu End -->
+		<!-- Header End -->
+		<!-- Cart Area Start -->
 		<div class="cart">
 			<div class="container-fluid">
 				<div id="cart-area" class="row">
+					<!-- Cart Items Start-->
 					<div id="cart-items" class="col-sm-8">
-						<div class="col-sm-10 col-sm-offset-1 cat">
+						<!-- Books Cart Start -->
+						<div class="col-sm-10 col-sm-offset-1 cartable">							
 							<div class="tname">Books</div>
 							<div id="tbook" class="table-responsive table-bordered">
-								<table class="table">
-									
+								<table class="table">									
 									<thead>
 										<tr>
 											<th class="col-sm-1">#</th>
@@ -152,14 +176,14 @@
 										<tr>
 											<td class="col-sm-1" style="vertical-align: middle">1</td>
 											<td class="col-sm-1"><img src="pieces-of-light.jpg" class="img-responsive"></td>
-											<td class="col-sm-8" style="vertical-align: middle">Pieces of Light by Charles Fernyhough</td>
+											<td class="col-sm-8" style="vertical-align: middle"><a class="prod" href="#">Pieces of Light by Charles Fernyhough</a></td>
 											<td class="col-sm-1" style="vertical-align: middle"><p class="t">$ 11</p></td>
 											<td class="col-sm-1" style="vertical-align: middle"><i class="far fa-minus-square"></i> 1 <i class="far fa-plus-square"></i></td>
 										</tr>
 										<tr>
 											<td class="col-sm-1" style="vertical-align: middle">2</td>
 											<td class="col-sm-1"><img src="the-first-true-lie.jpg" class="img-responsive"></td>
-											<td class="col-sm-8" style="vertical-align: middle">The First True Lie by Marina Mander</td>			
+											<td class="col-sm-8" style="vertical-align: middle"><a class="prod" href="#">The First True Lie by Marina Mander</a></td>			
 											<td class="col-sm-1" style="vertical-align: middle">$ 11</td>
 											<td class="col-sm-1" style="vertical-align: middle"><i class="far fa-minus-square"></i> 1 <i class="far fa-plus-square"></i></td>
 										</tr>
@@ -167,7 +191,9 @@
 								</table>
 							</div>
 						</div>
-						<div class="col-sm-10 col-sm-offset-1 cat">
+						<!-- Books Cart End -->
+						<!-- CDs Cart Start -->						
+						<div class="col-sm-10 col-sm-offset-1 cartable">
 							<div class="tname">CDs</div>
 							<div class="table-responsive table-bordered">
 								<table class="table">
@@ -185,14 +211,14 @@
 										<tr>
 											<td class="col-sm-1" style="vertical-align: middle">1</td>
 											<td class="col-sm-1"><img src="smooth-jazz.jpg" class="img-responsive"></td>
-											<td class="col-sm-8" style="vertical-align: middle">Music Soulchild Smooth Jazz Tribute</td>						
+											<td class="col-sm-8" style="vertical-align: middle"><a class="prod" href="#">Music Soulchild Smooth Jazz Tribute</a></td>						
 											<td class="col-sm-1" style="vertical-align: middle">$ 9</td>
 											<td class="col-sm-1" style="vertical-align: middle"><i class="far fa-minus-square"></i> 1 <i class="far fa-plus-square"></i></td>
 										</tr>
 										<tr>
 											<td class="col-sm-1" style="vertical-align: middle">2</td>
 											<td class="col-sm-1" ><img src="mad-max.jpg" class="img-responsive"></td>
-											<td class="col-sm-8" style="vertical-align: middle">Mad Max Fury Road</td>
+											<td class="col-sm-8" style="vertical-align: middle"><a class="prod" href="#">Mad Max Fury Road</a></td>
 											<td class="col-sm-1" style="vertical-align: middle">$ 7</td>
 											<td class="col-sm-1" style="vertical-align: middle"><i class="far fa-minus-square"></i> 1 <i class="far fa-plus-square"></i></td>
 										</tr>
@@ -200,7 +226,9 @@
 								</table>
 							</div>
 						</div>
-						<div class="col-sm-10 col-sm-offset-1 cat">
+						<!-- CDs Cart End -->
+						<!-- Audio Books Cart Start -->																								
+						<div class="col-sm-10 col-sm-offset-1 cartable">
 							<div class="tname">Audio Books</div>
 							<div class="table-responsive table-bordered">
 								<table class="table">
@@ -218,7 +246,7 @@
 										<tr>
 											<td class="col-sm-1" style="vertical-align: middle">1</td>
 											<td class="col-sm-1"><img src="got.jpg" class="img-responsive"></td>
-											<td class="col-sm-8" style="vertical-align: middle">Game Of Thrones Read By Roy Dotrice</td>
+											<td class="col-sm-8" style="vertical-align: middle"><a class="prod" href="#">Game Of Thrones Read By Roy Dotrice</a></td>
 											<td class="col-sm-1" style="vertical-align: middle">$ 22</td>
 											<td class="col-sm-1" style="vertical-align: middle"><i class="far fa-minus-square"></i> 1 <i class="far fa-plus-square"></i></td>
 										</tr>										
@@ -226,9 +254,13 @@
 								</table>
 							</div>
 						</div>
+						<!-- Audio Books Cart End -->											
 					</div>
+					<!-- Cart Items End -->
+					<!-- Amount Display Start -->
 					<div id="amount" class="col-sm-3">
 						<div class="tname">Amount</div>	
+						<!-- Final Items Start -->
 						<div class="table-responsive table-bordered">
 								<table class="table">																	
 									<thead>
@@ -279,20 +311,41 @@
 									</tbody>
 								</table>
 							</div>
-							
+							<!-- Final Items End -->
+							<!-- Amount Display Start -->
 							<div class="total"> 
 								<div class="row">
-									<div class="col-sm-9">Total:</div>
-									<div class="col-sm-3">$ 60</div>
+									<div class="col-sm-8">Total:</div>
+									<div class="col-sm-4">$ 60</div>
 								</div>
 							</div>
-							<div id="paybtn" ><button class="btn btn-success btn-lg">Pay</button></div>
+							<!-- Amount Display Start -->								
+						<div id="paybtn" ><button class="btn btn-success btn-lg">Pay Now</button></div><!-- Payment Button -->
 					</div>
+					<!-- Amount Display End -->
 				</div>
 			</div>
 		</div>
+		<!-- Cart Area End -->
 		<div class="clearfix"></div>
-		<div class="footer"></div>
-		
+		<div class="footer">
+			<div class="row">
+				<div class="col-sm-3">&copy; Shopping Mall</div>
+				<div id="footer-menu" class="col-sm-9">
+						<div class="container-fluid">
+							<ul class="nav nav-pills nav-justified">
+								<li class="btn"><a href="#">Home</a></li>
+								<li class="btn"><a href="#">Featured</a></li>
+								<li class="btn"><a href="#">Books</a></li>
+								<li class="btn"><a href="#">CDs</a></li>
+								<li class="btn"><a href="#">Audio Books</a></li>
+								<li class="btn"><a href="#">Discounts</a></li>
+								<li class="btn"><a href="#">Contact</a></li>
+							</ul>		
+						</div>
+				</div>
+			</div>
+			
+		</div>		
 	</body>
 </html>
